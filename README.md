@@ -33,9 +33,3 @@ Para gerar o build de produção:
 ```sh
 npm run build
 ```
-
-## Publicação
-
-Cada push para a branch `main` executa o workflow do GitHub Actions, gera a versão estática e publica o conteúdo de `.output/public` no GitHub Pages.
-
-Na primeira publicação, configure o repositório em **Settings → Pages → Build and deployment → Source → GitHub Actions**.
