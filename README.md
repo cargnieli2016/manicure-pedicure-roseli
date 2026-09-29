@@ -1,6 +1,6 @@
 # Roseli Manicure e Pedicure
 
-Site profissional da Roseli, manicure e pedicure em Caieiras, São Paulo. Apresenta os serviços, a experiência profissional e facilita o agendamento pelo WhatsApp.
+Site profissional da Roseli, manicure e pedicure em Caieiras, São Paulo. Apresenta os serviços, a experiência profissional e permite agendar online.
 
 **Acesse o site:** [cargnieli2016.github.io/manicure-pedicure-roseli](https://cargnieli2016.github.io/manicure-pedicure-roseli/)
 
@@ -8,8 +8,12 @@ Site profissional da Roseli, manicure e pedicure em Caieiras, São Paulo. Aprese
 
 - Página responsiva para serviços de manicure e pedicure.
 - Informações sobre atendimento e experiência em Caieiras/SP.
-- Contato e agendamento direto pelo WhatsApp.
+- Agendamento online pelo Cal.com e contato alternativo pelo WhatsApp.
 - Pré-renderização para publicação estática no GitHub Pages.
+
+## Agendamento
+
+As clientes podem escolher o serviço, a data e o horário pela [agenda online](https://cal.com/walter-donizt-i6tkuf/manicure-e-pedicure), incorporada à página inicial. Para tirar dúvidas, o contato também está disponível pelo WhatsApp no site.
 
 ## Tecnologias
 

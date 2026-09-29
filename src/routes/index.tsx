@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useRef } from "react";
 import roseliAsset from "@/assets/roseli.png";
 
 const WHATSAPP_URL =
@@ -44,6 +45,28 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const calEmbedInitialized = useRef(false);
+
+  useEffect(() => {
+    if (calEmbedInitialized.current) return;
+    calEmbedInitialized.current = true;
+
+    const script = document.createElement("script");
+    script.textContent = `
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "manicure-e-pedicure", { origin: "https://app.cal.com" });
+      Cal.config = Cal.config || {};
+      Cal.config.forwardQueryParams = true;
+      Cal.ns["manicure-e-pedicure"]("inline", {
+        elementOrSelector: "#my-cal-inline-manicure-e-pedicure",
+        config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+        calLink: "walter-donizt-i6tkuf/manicure-e-pedicure",
+      });
+      Cal.ns["manicure-e-pedicure"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+    `;
+    document.head.appendChild(script);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-body text-brand-ink">
       {/* Navigation */}
@@ -60,14 +83,15 @@ function Index() {
             <a href="#sobre" className="transition-colors hover:text-brand">
               Sobre
             </a>
+            <a href="#agendar" className="transition-colors hover:text-brand">
+              Agendar
+            </a>
             <a href="#contato" className="transition-colors hover:text-brand">
               Contato
             </a>
           </div>
           <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noreferrer"
+            href="#agendar"
             className="rounded-full bg-brand px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-brand/90"
           >
             Agendar Agora
@@ -178,6 +202,38 @@ function Index() {
               <p className="font-bold text-brand">Sob consulta</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="agendar" className="scroll-mt-20 bg-brand-soft/40 px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand">
+              Agendamento online
+            </p>
+            <h2 className="font-display text-4xl">Escolha seu horário</h2>
+            <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-stone-500">
+              Selecione o serviço, a data e o horário que funcionam melhor para você.
+            </p>
+          </div>
+          <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm">
+            <div
+              id="my-cal-inline-manicure-e-pedicure"
+              className="h-[760px] w-full overflow-auto sm:h-[780px]"
+            />
+          </div>
+          <p className="mt-4 text-center text-sm text-stone-500">
+            Problemas para carregar a agenda?{" "}
+            <a
+              href="https://cal.com/walter-donizt-i6tkuf/manicure-e-pedicure"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-brand underline underline-offset-4"
+            >
+              Abra em uma nova página
+            </a>
+            .
+          </p>
         </div>
       </section>
 
