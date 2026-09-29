@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
-import roseliAsset from "@/assets/roseli.png";
+import manicurePortfolioAsset from "@/assets/manicure-portfolio.jpg";
 
 const WHATSAPP_URL =
   "https://wa.me/5511913630500?text=" +
@@ -135,8 +135,8 @@ function Index() {
             <div className="relative">
               <div className="absolute -inset-4 -z-10 rounded-2xl bg-brand-soft"></div>
               <img
-                src={roseliAsset}
-                alt="Roseli, manicure e pedicure em Caieiras/SP"
+                src={manicurePortfolioAsset}
+                alt="Close-up de unhas com manicure profissional"
                 className="aspect-[4/5] w-full rounded-xl object-cover object-top shadow-2xl outline-1 -outline-offset-1 outline-black/5"
               />
               <div className="absolute -bottom-6 -left-6 hidden rounded-lg bg-white p-6 shadow-xl lg:block">
